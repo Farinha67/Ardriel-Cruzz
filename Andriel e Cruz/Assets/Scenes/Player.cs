@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     float Horizontal;
     public Rigidbody2D body;
     int direction = 1;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
 
     {
 
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,13 +29,13 @@ public class Player : MonoBehaviour
 
         Horizontal = Input.GetAxisRaw("Horizontal");
         body.velocity = new Vector2(Horizontal * speed, body.velocity.y);
-
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
+
 
 
         if (Input.GetButtonDown("Jump") && groundCheck)
         {
-
+            anim.SetInteger("Transition", 1);
             body.AddForce(new Vector2(0, jumpStrength * 100));
         }
         if (Horizontal != 0)
