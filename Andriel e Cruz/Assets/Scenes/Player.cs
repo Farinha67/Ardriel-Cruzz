@@ -6,11 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public int life = 3;
-    public GameObject bullet;
+    //public int life = 3;
+    //public GameObject bullet;
     public Transform foot;
     bool groundCheck;
-    public float speed = 2, jumpStrength = 5, bulletSpeed = 8;
+    public float speed = 2, jumpStrength = 5;  
     float Horizontal;
     public Rigidbody2D body;
     int direction = 1;
@@ -41,12 +41,12 @@ public class Player : MonoBehaviour
             direction = (int)Horizontal;
 
         }
-        if (Input.GetButton("Fire1"))
+       /* if (Input.GetButton("Fire1"))
         {
 
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * direction, 0);
-        }
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
