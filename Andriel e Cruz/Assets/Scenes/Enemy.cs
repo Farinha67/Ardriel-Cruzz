@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {//Aqui o collision representa o Bullet
-            life -= collision.gameObject.GetComponent<Bullet>().damage;
+    
             Destroy(collision.gameObject);//Esse destroi o tiro
             if (life <= 0)
             {
