@@ -7,9 +7,6 @@ TagManager:
   - enemy
   - Enemy
   - MorreVoid
-  - Bullet
-  - Aumenta
-  - Divide
   layers:
   - Default
   - TransparentFX
