@@ -2,24 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 
-    //public int life = 3;
-    //public GameObject bullet;
+    public int life = 3;
+    public GameObject bullet;
     public Transform foot;
     bool groundCheck;
-    public float speed = 2, jumpStrength = 5;  
+    public int speed = 5, jumpStrength = 5, bulletSpeed = 8;
     float Horizontal;
     public Rigidbody2D body;
     int direction = 1;
     private Animator anim;
+
+    public int score;
+    public Text texto;
+    public string text;
+    [SerializeField] private Bullet bulletprefab;
+    public GameManangerScript gameMananger;
+    private bool isDead;
+
+    float timerShoot;
+    public float fireRate;
     // Start is called before the first frame update
     void Start()
-
     {
-
+        Time.timeScale = 1;
         anim = GetComponent<Animator>();
     }
 
@@ -43,30 +53,45 @@ public class Player : MonoBehaviour
             direction = (int)Horizontal;
 
         }
-       /* if (Input.GetButton("Fire1"))
-        {
 
+       if (Input.GetButton("Fire1"))
+       {
+            if(timerShoot > fireRate)
+            {
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * direction, 0);
-        }*/
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       // if (collision.gameObject.CompareTag("enemy"))
+            timerShoot = 0;
+            }
+       }else
         {
-            //life--;
-            //life-= 1;
-            //life = life -1;
-            //life -= collision.gameObject.GetComponent<Enemy>().damage;
-            //if (life < 0)
-           // {
-               // Destroy(gameObject);
-
-           // }
+            timerShoot += Time.deltaTime;
         }
 
+    }
+    
+    
+  
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            life--;
+            life -= collision.gameObject.GetComponent<Enemy>().damage;
+            if (life < 0)
+            {
+                Destroy(gameObject);
+
+            }
+        }
+        if (collision.gameObject.CompareTag("MorreVoid"))
+        {
+            isDead = true;
+            gameMananger.GameOver();
+            Destroy(gameObject);
+        }
 
     }
+
 }
 
 

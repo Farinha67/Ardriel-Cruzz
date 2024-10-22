@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - Enemy
   - MorreVoid
+  - Bullet
   layers:
   - Default
   - TransparentFX
