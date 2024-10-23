@@ -66,22 +66,52 @@ public class Player : MonoBehaviour
         {
             timerShoot += Time.deltaTime;
         }
+        UpdateScoreText();
 
+        texto.text = "PONTOS:" + score.ToString();
+
+        Horizontal = Input.GetAxisRaw("Horizontal");
+
+        body.velocity = new Vector2(Horizontal * speed, body.velocity.y);
+
+        if (Mathf.Abs(Horizontal) > 0)
+        {
+            anim.SetBool("Speed", true);
+        }
+        else
+        {
+            anim.SetBool("Speed", false);
+        }
+
+        groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
     }
     
-    
-  
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             life--;
-            life -= collision.gameObject.GetComponent<Enemy>().damage;
-            if (life < 0)
-            {
-                Destroy(gameObject);
 
+            if (life <= 0 && !isDead)
+            {
+                isDead = true;
+                gameMananger.GameOver();
+                Destroy(gameObject);
             }
+        }
+        if (collision.gameObject.CompareTag("Aumenta"))
+        {
+            score += 1;
+            Destroy(collision.gameObject);
+            UpdateScoreText();
+        }
+        if (collision.gameObject.CompareTag("Divide"))
+        {
+            score /= 2;
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("MorreVoid"))
         {
@@ -91,7 +121,9 @@ public class Player : MonoBehaviour
         }
 
     }
-
+    private void UpdateScoreText()
+    {
+    }
 }
 
 
