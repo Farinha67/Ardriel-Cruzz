@@ -108,11 +108,6 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             UpdateScoreText();
         }
-        if (collision.gameObject.CompareTag("Divide"))
-        {
-            score /= 2;
-            Destroy(collision.gameObject);
-        }
         if (collision.gameObject.CompareTag("MorreVoid"))
         {
             isDead = true;
