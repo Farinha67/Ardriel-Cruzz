@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     float Horizontal;
     public Rigidbody2D body;
     int direction = 1;
-    private Animator anim;
 
     public int score;
     public Text texto;
@@ -30,7 +29,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,7 +43,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && groundCheck)
         {
-            anim.SetInteger("Transition", 1);
             body.AddForce(new Vector2(0, jumpStrength * 100));
         }
         if (Horizontal != 0)
@@ -73,15 +70,6 @@ public class Player : MonoBehaviour
         Horizontal = Input.GetAxisRaw("Horizontal");
 
         body.velocity = new Vector2(Horizontal * speed, body.velocity.y);
-
-        if (Mathf.Abs(Horizontal) > 0)
-        {
-            anim.SetBool("Speed", true);
-        }
-        else
-        {
-            anim.SetBool("Speed", false);
-        }
 
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
     }
