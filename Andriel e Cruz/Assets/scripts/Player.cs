@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class Player : MonoBehaviour
     int direction = 1;
 
     public int score;
-    public Text texto;
-    public string text;
+    public TMP_Text texto;
+    public string TMP_Text;
     [SerializeField] private Bullet bulletprefab;
     public GameManangerScript gameMananger;
     private bool isDead;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
         }
         UpdateScoreText();
 
-        texto.text = "PONTOS:" + score.ToString();
+        texto.text = "Pontos:" + score.ToString();
 
         Horizontal = Input.GetAxisRaw("Horizontal");
 
