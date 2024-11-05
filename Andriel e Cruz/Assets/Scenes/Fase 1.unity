@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
-  bullet: {fileID: 7061022883714244062, guid: f39e42edc58483a4880a7ff7abaceb4c, type: 3}
+  bullet: {fileID: 4061549451111517336, guid: fa42f67e39f92724fb8639c342e84d1f, type: 3}
   foot: {fileID: 1020852822}
   speed: 5
   jumpStrength: 3
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   score: 0
   texto: {fileID: 193757231}
   text: 
-  bulletprefab: {fileID: 3481758183654341741, guid: f39e42edc58483a4880a7ff7abaceb4c, type: 3}
+  bulletprefab: {fileID: 3783233726261754119, guid: fa42f67e39f92724fb8639c342e84d1f, type: 3}
   gameMananger: {fileID: 1479385129}
   fireRate: 0
 --- !u!1 &284690002
@@ -1550,7 +1550,7 @@ RectTransform:
   m_GameObject: {fileID: 423874536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6098, y: 1.6098, z: 1.6098}
+  m_LocalScale: {x: 3.377296, y: 3.377296, z: 3.377296}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1073375997}
@@ -1559,7 +1559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -186, y: -67}
+  m_AnchoredPosition: {x: -967, y: -843}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &423874538
@@ -1583,7 +1583,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1606,9 +1606,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1479385130}
-        m_TargetAssemblyTypeName: Victory, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 1479385131}
+        m_TargetAssemblyTypeName: LaNele, Assembly-CSharp
+        m_MethodName: Lanele
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "PARABENS \nVOCE GANHOU A BUNDA DO RIBEIRO DE PRESENTE"
+  m_text: "PARABENS \nAGORA VOCE PODE APERTAR O BOT\xC3O DO RIBEIRO"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -3039,7 +3039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: "BOT\xC3O DO RIBEIRO"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -3048,8 +3048,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3066,8 +3066,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4154,6 +4154,7 @@ GameObject:
   - component: {fileID: 1479385128}
   - component: {fileID: 1479385129}
   - component: {fileID: 1479385130}
+  - component: {fileID: 1479385131}
   m_Layer: 0
   m_Name: GameMananger
   m_TagString: Untagged
@@ -4204,6 +4205,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGameImage: {fileID: 826323981}
   player: {fileID: 227202423}
+--- !u!114 &1479385131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479385127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725de1df9ae6fa744ad513e13eff906e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NomeDoLevelDeJogo: Victory
 --- !u!1 &1503427931
 GameObject:
   m_ObjectHideFlags: 0

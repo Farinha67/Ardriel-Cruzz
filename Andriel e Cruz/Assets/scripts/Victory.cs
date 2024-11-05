@@ -28,9 +28,5 @@ public class Victory : MonoBehaviour
             ShowEndGameImage();
         }
     }
-    public void Quit()
-    {
-        Application.Quit();
-    }
 }
 
